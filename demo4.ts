@@ -3,7 +3,7 @@
 const somePromise = async (num: number): Promise<string> => {
   console.log(`入力：${num}`);
   if (num >= 10) {
-    return "10以上です．順："
+    return "10以上です．順：";
   } else {
     throw "10より小さいです．順：";
   }
@@ -33,4 +33,4 @@ const processWithAwait = async (num: number) => {
   }
 };
 
-processWithAwait(⬜️);
+processWithAwait(2);
