@@ -10,10 +10,12 @@ const somePromise = (num: number): Promise<string> =>
     }
   });
 
-const processWithAwait = async (num: number): Promise<string> => {
+const processWithAwait = async (num: number) => {
+  let val: string = ""; // 結果を格納する変数
+
   try {
     // somePromise を実行し、成功した場合に値を取得
-    let val = await somePromise(num);
+    val = await somePromise(num);
 
     // 処理 A
     val += "A->";
@@ -21,20 +23,15 @@ const processWithAwait = async (num: number): Promise<string> => {
     val += "B->";
     // 処理 D
     val += "D";
-    return val;
   } catch (err: any) {
     // エラー処理 C
-    let val = err + "C->";
+    val = err + "C->";
     // 処理 D
     val += "D";
-    return val;
   } finally {
-    // 終了処理 E
+    console.log(val);
     console.log("結果");
   }
 };
 
-const item: number = 15;
-processWithAwait(item).then((val) => {
-  console.log(val);
-});
+processWithAwait(12);
